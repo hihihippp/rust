@@ -45,7 +45,7 @@
 
 extern crate regex;
 
-use std::io;
+use std::old_io;
 use regex::{NoExpand, Regex};
 use std::sync::{Arc, Future};
 
@@ -63,10 +63,10 @@ fn count_matches(seq: &str, variant: &Regex) -> int {
 
 fn main() {
     let mut rdr = if std::os::getenv("RUST_BENCH").is_some() {
-        let fd = io::File::open(&Path::new("shootout-k-nucleotide.data"));
-        box io::BufferedReader::new(fd) as Box<io::Reader>
+        let fd = old_io::File::open(&Path::new("shootout-k-nucleotide.data"));
+        box old_io::BufferedReader::new(fd) as Box<old_io::Reader>
     } else {
-        box io::stdin() as Box<io::Reader>
+        box old_io::stdin() as Box<old_io::Reader>
     };
     let mut seq = rdr.read_to_string().unwrap();
     let ilen = seq.len();

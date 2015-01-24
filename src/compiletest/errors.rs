@@ -10,7 +10,7 @@
 use self::WhichLine::*;
 
 use std::ascii::AsciiExt;
-use std::io::{BufferedReader, File};
+use std::old_io::{BufferedReader, File};
 use regex::Regex;
 
 pub struct ExpectedError {
